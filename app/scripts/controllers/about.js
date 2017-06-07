@@ -8,10 +8,14 @@
  * Controller of the ilearnApp
  */
 angular.module('ilearnApp')
-  .controller('AboutCtrl', function () {
+    .controller('AboutCtrl', function () {
+      var vm = this;
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+      vm.test = "hii";
+
   });

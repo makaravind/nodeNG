@@ -8,6 +8,7 @@
  *
  * Main module of the application.
  */
+// ng-app
 angular
   .module('ilearnApp', [
     'ngAnimate',
@@ -18,9 +19,24 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-    $urlRouterProvider.otherwise('/404');
+  .run(function ($stateParams) {
+    console.log($stateParams)
+    /**
+      get executed after the injector is created and are used to kickstart the application.
+      Only instances and constants can be injected into run blocks.
+      This is to prevent further system configuration during application run time.
 
+     Run blocks are the closest thing in Angular to the main method. A run block is the code which needs to run to kickstart the application. It is executed after all of the service have been configured and the injector has been created. Run blocks typically contain code which is hard to unit-test,
+     and for this reason should be declared in isolated modules, so that they can be ignored in the unit-tests.
+     */
+    console.log("app run");
+  })
+  .config(function(){
+    console.log('2 config')
+})
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    console.log('11');
+    $urlRouterProvider.otherwise('/404');
     $stateProvider
       .state('home', {
         url: '',
@@ -67,15 +83,14 @@ angular
           }
         }
       })
-      .state('about', {
-        url: '/about',
+      .state('help', {
+        url: '/help',
         views: {
           'main-view': {
-            templateUrl: 'views/about.html',
-            controller: 'AboutCtrl'
+            templateUrl: 'views/help.html'
           },
           'header-view': {
-            templateUrl: 'views/header/custom.html'
+            templateUrl: 'views/header/default.html'
           },
           'footer-view': {
             templateUrl: 'views/footer/default.html'
@@ -92,22 +107,22 @@ angular
         }
       })
     ;
-/*
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-*/
+    /*
+     $routeProvider
+     .when('/', {
+     templateUrl: 'views/main.html',
+     controller: 'MainCtrl',
+     controllerAs: 'main'
+     })
+     .when('/about', {
+     templateUrl: 'views/about.html',
+     controller: 'AboutCtrl',
+     controllerAs: 'about'
+     })
+     .otherwise({
+     redirectTo: '/'
+     });
+     */
 
     $locationProvider.hashPrefix('');
   });
