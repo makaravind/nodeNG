@@ -13,12 +13,12 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
+    // 'ngRoute',
     'ui.router',
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($stateProvider, $urlRouterProvider, $routeProvider, $locationProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/404');
 
     $stateProvider
@@ -28,6 +28,12 @@ angular
           'main-view': {
             templateUrl: 'views/main.html',
             controller: 'MainCtrl'
+          },
+          'header-view': {
+            templateUrl: 'views/header/default.html'
+          },
+          'footer-view': {
+            templateUrl: 'views/footer/default.html'
           }
         }
       })
@@ -37,6 +43,12 @@ angular
           'main-view': {
             templateUrl: 'views/main.html',
             controller: 'MainCtrl'
+          },
+          'header-view': {
+            templateUrl: 'views/header/default.html'
+          },
+          'footer-view': {
+            templateUrl: 'views/footer/default.html'
           }
         }
       })
@@ -46,6 +58,12 @@ angular
           'main-view': {
             templateUrl: 'views/contact.html',
             controller: 'ContactCtrl'
+          },
+          'header-view': {
+            templateUrl: 'views/header/default.html'
+          },
+          'footer-view': {
+            templateUrl: 'views/footer/default.html'
           }
         }
       })
@@ -55,6 +73,12 @@ angular
           'main-view': {
             templateUrl: 'views/about.html',
             controller: 'AboutCtrl'
+          },
+          'header-view': {
+            templateUrl: 'views/header/custom.html'
+          },
+          'footer-view': {
+            templateUrl: 'views/footer/default.html'
           }
         }
       })
