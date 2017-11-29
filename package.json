@@ -33,7 +33,12 @@
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "phantomjs-prebuilt": "^2.1.14",
-    "time-grunt": "^1.0.0"
+    "time-grunt": "^1.0.0",
+    "async": "~2.6.0",
+    "express": "~4.16.2",
+    "express-fileupload": "~0.3.0",
+    "github": "^12.1.0",
+    "pug": "^2.0.0-rc.4"
   },
   "engines": {
     "node": ">=0.10.0"

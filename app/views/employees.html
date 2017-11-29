@@ -1,0 +1,14 @@
+<div class="container" style="margin-top: 50px">
+
+  <ul class="collection">
+    <li class="collection-item avatar" ng-repeat="item in empCtrl.employees">
+      <img src="images/yuna.jpg" alt="" class="circle">
+      <span class="title">{{item.name}}</span>
+      <p>First Line <br>
+        Second Line
+      </p>
+      <a ui-sref="employee({id: item.id})" class="secondary-content"><i class="material-icons">arrow_forward</i></a>
+    </li>
+  </ul>
+
+</div>

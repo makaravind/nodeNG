@@ -1,0 +1,26 @@
+<div class="col s6 m6">
+  <div class="card hoverable center-align">
+    <div class="card-image">
+      <form ref='uploadForm'
+            id='uploadForm'
+            action='http://localhost:3005/employees/profile/upload'
+            method='post'
+            encType="multipart/form-data">
+        <input type="file" name="sampleFile" />
+        <input type='submit'/>
+      </form>
+      <img src="https://thumbs.dreamstime.com/z/cartoon-person-12066721.jpg" height="300px">
+      <span class="card-title black-text">{{empCtrl.employee.name}}</span>
+      <a class="btn-floating halfway-fab waves-effect waves-light red" ng-click="empCtrl.enableAdd()"><i class="material-icons">add</i></a>
+    </div>
+    <div class="card-content">
+      <p class="grey-text">Details of esteemed Accolite employee</p>
+      <div class="row center-align" ng-if="empCtrl.showAddControl">
+        <input class="col s3" type="text" placeholder="new key" ng-model="new.key">
+        <input class="col s3" type="text" placeholder="new value" ng-model="new.value">
+        <a class="btn btn-danger col s3" ng-click="empCtrl.addNewDetail()">Add</a>
+      </div>
+    </div>
+    <a class="btn btn-danger col s3" ng-if="empCtrl.creating" ng-click="empCtrl.addNewDetail()">Create</a>
+  </div>
+</div>

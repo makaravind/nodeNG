@@ -19,23 +19,7 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .run(function ($stateParams) {
-    console.log($stateParams)
-    /**
-      get executed after the injector is created and are used to kickstart the application.
-      Only instances and constants can be injected into run blocks.
-      This is to prevent further system configuration during application run time.
-
-     Run blocks are the closest thing in Angular to the main method. A run block is the code which needs to run to kickstart the application. It is executed after all of the service have been configured and the injector has been created. Run blocks typically contain code which is hard to unit-test,
-     and for this reason should be declared in isolated modules, so that they can be ignored in the unit-tests.
-     */
-    console.log("app run");
-  })
-  .config(function(){
-    console.log('2 config')
-})
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-    console.log('11');
     $urlRouterProvider.otherwise('/404');
     $stateProvider
       .state('home', {
@@ -43,22 +27,7 @@ angular
         views: {
           'main-view': {
             templateUrl: 'views/main.html',
-            controller: 'MainCtrl'
-          },
-          'header-view': {
-            templateUrl: 'views/header/default.html'
-          },
-          'footer-view': {
-            templateUrl: 'views/footer/default.html'
-          }
-        }
-      })
-      .state('root', {
-        url: '/',
-        views: {
-          'main-view': {
-            templateUrl: 'views/main.html',
-            controller: 'MainCtrl'
+            controller: 'MainCtrl as mainCtrl'
           },
           'header-view': {
             templateUrl: 'views/header/default.html'
@@ -88,6 +57,51 @@ angular
         views: {
           'main-view': {
             templateUrl: 'views/help.html'
+          },
+          'header-view': {
+            templateUrl: 'views/header/default.html'
+          },
+          'footer-view': {
+            templateUrl: 'views/footer/default.html'
+          }
+        }
+      })
+      .state('employees', {
+        url: '/all',
+        views: {
+          'main-view': {
+            templateUrl: 'views/employees.html',
+            controller: 'EmployeesCtrl as empCtrl'
+          },
+          'header-view': {
+            templateUrl: 'views/header/default.html'
+          },
+          'footer-view': {
+            templateUrl: 'views/footer/default.html'
+          }
+        }
+      })
+      .state('employee', {
+        url: '/employee/:id',
+        views: {
+          'main-view': {
+            templateUrl: 'views/employee.html',
+            controller: 'EmployeeCtrl as empCtrl'
+          },
+          'header-view': {
+            templateUrl: 'views/header/default.html'
+          },
+          'footer-view': {
+            templateUrl: 'views/footer/default.html'
+          }
+        }
+      })
+      .state('github', {
+        url: '/general/github/:id',
+        views: {
+          'main-view': {
+            templateUrl: 'views/github.html',
+            controller: 'EmployeeCtrl as empCtrl'
           },
           'header-view': {
             templateUrl: 'views/header/default.html'
